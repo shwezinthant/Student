@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student</title>
+    <script src="bootstrap-5.2.0-beta1-dist/js/jquery.min.js"></script>
+  </head>
+  <body>
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" />
+    <br /><br />
+    <label for="email">Email</label>
+    <input type="text" id="email" name="email" />
+    <br /><br />
+    <label for="phone">Phone Number</label>
+    <input type="text" id="phone" name="phone" />
+    <br /><br />
+    <label for="address">Address</label>
+    <textarea name="address" id="address"></textarea>
+    <br /><br />
+    <button id="save">Save</button>
+    <br /><br />
+    <table border="1" cellpadding="15" cellspacing="0">
+      <thead>
+        <tr>
+          <th>No.1</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone No.</th>
+          <th>Address</th>
+        </tr>
+      </thead>
+
+      <tbody id="tbody"></tbody>
+    </table>
+
+    <script>
+      $(document).ready(function () {
+        var j = 1;
+        $("#save").click(function () {
+          var name = $("#name").val();
+          var email = $("#email").val();
+          var phone = $("#phone").val();
+          var address = $("#address").val();
+          if (name && email && phone && address) {
+            var html = `<tr>
+          <td>${j++}</td>
+          <td>${name}</td>
+          <td>${email}</td>
+          <td>${phone}</td>
+          <td>${address}</td>
+            </tr>`;
+            console.log(html);
+            $("#tbody").append(html);
+          } else {
+            alert("fill again!");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
